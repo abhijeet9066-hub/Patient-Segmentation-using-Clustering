@@ -1,0 +1,33 @@
+{
+  "project": "Heart Failure Patient Phenotype Segmentation",
+  "dataset_name": "Heart Failure Clinical Records",
+  "uci_dataset_id": 519,
+  "source_url": "https://archive.ics.uci.edu/static/public/519/heart%2Bfailure%2Bclinical%2Brecords.zip",
+  "expected_rows": 299,
+  "random_state": 42,
+  "candidate_k": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "cluster_features": [
+    "age",
+    "anaemia",
+    "creatinine_phosphokinase",
+    "diabetes",
+    "ejection_fraction",
+    "high_blood_pressure",
+    "platelets",
+    "serum_creatinine",
+    "serum_sodium",
+    "sex",
+    "smoking"
+  ],
+  "posthoc_outcome": "DEATH_EVENT",
+  "excluded_from_clustering": [
+    "time",
+    "DEATH_EVENT"
+  ]
+}

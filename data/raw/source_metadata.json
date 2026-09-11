@@ -1,0 +1,28 @@
+{
+  "dataset": "Heart Failure Clinical Records",
+  "uci_dataset_id": 519,
+  "source_url": "https://archive.ics.uci.edu/static/public/519/heart%2Bfailure%2Bclinical%2Brecords.zip",
+  "retrieved_at_utc": "2026-09-11T07:17:53.172114+00:00",
+  "archive_sha256": "f0739603e2f9573ffc7d509573cbf9bcb4cc889e4eea0f35a75bec68fc9163d7",
+  "archive_bytes": 12421,
+  "csv_file": "heart_failure_clinical_records_dataset.csv",
+  "row_count": 299,
+  "columns": [
+    "age",
+    "anaemia",
+    "creatinine_phosphokinase",
+    "diabetes",
+    "ejection_fraction",
+    "high_blood_pressure",
+    "platelets",
+    "serum_creatinine",
+    "serum_sodium",
+    "sex",
+    "smoking",
+    "time",
+    "DEATH_EVENT"
+  ],
+  "license": "CC BY 4.0",
+  "doi": "10.24432/C5Z89R",
+  "synthetic_data": false
+}

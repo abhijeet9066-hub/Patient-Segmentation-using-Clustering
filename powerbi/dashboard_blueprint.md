@@ -1,32 +1,73 @@
-# Power BI Dashboard Blueprint — Patient Segmentation using Clustering
+# Power BI Dashboard Blueprint
 
-## Data Source
-Import `data/processed/powerbi_fact_main.csv`.
+## Page 1 — Cohort & Segmentation Overview
 
-## Model
-Create a Calendar table and relate it to the main date field.
+Cards:
+- 299 source records
+- selected cluster count
+- selected silhouette score
+- observed death-event prevalence
 
-## Pages
+Charts:
+- patient count by segment
+- cohort percentage by segment
 
-### 1. Executive Overview
-- KPI cards: Total Records, High Risk Rate, Average Value
-- Monthly trend line chart
-- Top categories bar chart
+Mandatory note:
 
-### 2. Deep-Dive Analysis
-- Slicers: date, region/category, segment
-- Matrix table with category performance
-- Drill-through page for individual case/entity
+> Segments are exploratory phenotypes. They are not validated diagnoses or individual risk scores.
 
-### 3. ML Insights
-- Prediction probability distribution
-- Feature importance bar chart
-- Confusion matrix table from model output
+## Page 2 — Segment Clinical Profiles
 
-### 4. Recommendations
-- Risk segments
-- Business/clinical actions
-- Monitoring plan
+Compare by segment:
 
-## Design
-Use a clean blue/white executive theme. Keep 4–6 visuals per page.
+- age
+- ejection fraction
+- serum creatinine
+- serum sodium
+- creatinine phosphokinase
+- platelets
+
+Use both original-unit summary and standardized centroid heatmap.
+
+## Page 3 — PCA Segment Map
+
+Scatter:
+- X: pca_1
+- Y: pca_2
+- legend: segment_label
+
+PCA coordinates are for visualization only; clustering uses the full standardized 11-feature space.
+
+## Page 4 — Comorbidity Mix
+
+Segment-level percentages:
+
+- diabetes
+- high blood pressure
+- anaemia
+- smoking
+
+## Page 5 — Post-hoc Outcome Comparison
+
+Show:
+
+- observed death events
+- observed death-event percentage
+- mean follow-up days
+
+Mandatory note:
+
+> DEATH_EVENT and follow-up time were excluded from clustering. These charts are retrospective descriptive comparisons, not prospective mortality predictions.
+
+## Page 6 — Model Selection & Methodology
+
+Show:
+
+- candidate k
+- silhouette score
+- inertia
+- selected solution
+- source DOI and license
+- clustering feature list
+- leakage exclusions
+- limitations

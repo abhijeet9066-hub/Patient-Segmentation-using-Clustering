@@ -1,23 +1,35 @@
--- Power BI DAX Measures for Patient Segmentation using Clustering
+Patients =
+COUNTROWS(PatientSegments)
 
-Total Records = COUNTROWS('powerbi_fact_main')
+Segments =
+DISTINCTCOUNT(PatientSegments[segment_id])
 
-Distinct Entities = DISTINCTCOUNT('powerbi_fact_main'[id])
+Observed Death Events =
+SUM(PatientSegments[DEATH_EVENT])
 
-Average Value = AVERAGE('powerbi_fact_main'[value])
-
-High Risk Count =
-CALCULATE(
-    [Total Records],
-    'powerbi_fact_main'[target] = 1
+Observed Death Event % =
+DIVIDE(
+    [Observed Death Events],
+    [Patients]
 )
 
-High Risk Rate =
-DIVIDE([High Risk Count], [Total Records])
+Average Age =
+AVERAGE(PatientSegments[age])
 
-YoY Change =
-VAR CurrentValue = [Total Records]
-VAR PreviousValue =
-    CALCULATE([Total Records], DATEADD('Calendar'[Date], -1, YEAR))
-RETURN
-DIVIDE(CurrentValue - PreviousValue, PreviousValue)
+Average Ejection Fraction =
+AVERAGE(PatientSegments[ejection_fraction])
+
+Average Serum Creatinine =
+AVERAGE(PatientSegments[serum_creatinine])
+
+Diabetes Prevalence % =
+100 * AVERAGE(PatientSegments[diabetes])
+
+Hypertension Prevalence % =
+100 * AVERAGE(PatientSegments[high_blood_pressure])
+
+Selected Silhouette Score =
+CALCULATE(
+    MAX(ModelSelection[silhouette_score]),
+    ModelSelection[selected] = 1
+)

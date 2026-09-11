@@ -1,0 +1,30 @@
+{
+  "algorithm": "KMeans",
+  "selected_k": 4,
+  "selection_rule": "highest silhouette score; ties favor smaller k",
+  "random_state": 42,
+  "n_init": 30,
+  "features": [
+    "age",
+    "anaemia",
+    "creatinine_phosphokinase",
+    "diabetes",
+    "ejection_fraction",
+    "high_blood_pressure",
+    "platelets",
+    "serum_creatinine",
+    "serum_sodium",
+    "sex",
+    "smoking"
+  ],
+  "excluded_from_clustering": [
+    "time",
+    "DEATH_EVENT"
+  ],
+  "posthoc_outcome": "DEATH_EVENT",
+  "pca_explained_variance_ratio": [
+    0.1511786224219994,
+    0.12685579442209807
+  ],
+  "segment_label_rule": "raw clusters ordered by mean PCA component 1; no outcome used"
+}

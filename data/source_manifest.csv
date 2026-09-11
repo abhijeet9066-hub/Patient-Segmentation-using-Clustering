@@ -1,0 +1,8 @@
+asset,layer,source_or_derivation,status,notes
+data/raw/heart_failure_clinical_records_dataset.csv,raw,UCI Heart Failure Clinical Records dataset ID 519,generated_by_extractor,"Official UCI CSV extracted from downloaded archive"
+data/raw/source_metadata.json,raw,src/01_extract_uci.py,generated,"Retrieval timestamp, SHA-256, archive size, schema and row count"
+data/processed/patient_segments.csv,processed,src/02_cluster_patients.py,generated,"One row per source record with segment and PCA coordinates"
+data/processed/segment_summary.csv,processed,src/02_cluster_patients.py,generated,"Clinical profile and post-hoc outcome prevalence by segment"
+data/processed/cluster_feature_profiles.csv,processed,src/02_cluster_patients.py,generated,"Long-format feature profiles and standardized centroids"
+data/processed/model_selection.csv,processed,src/02_cluster_patients.py,generated,"Candidate k silhouette and inertia diagnostics"
+data/processed/patient_segmentation.sqlite,warehouse,src/03_build_sqlite.py,generated,"SQLite analytical warehouse"
